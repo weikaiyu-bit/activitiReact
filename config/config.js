@@ -72,11 +72,32 @@ export default defineConfig({
               ],
             },
             {
-              name: 'list.table-list',
+              name: '流程管理', 
               icon: 'table',
-              path: '/list',
-              component: './ListTableList',
+              path: '/process',
+              routes: [
+                {
+                  name: '请假管理',
+                  icon: 'table',
+                  path: '/process/newTheBill',
+                  component: './process/newTheBill',
+
+                },
+                {
+                  name: '任务管理',
+                  icon: 'table',
+                  path: '/process/task',
+                  component: './process/task',
+                },
+              ]
             },
+
+            // {
+            //   name: 'list.table-list',
+            //   icon: 'table',
+            //   path: '/list',
+            //   component: './ListTableList',
+            // },
             {
               component: './404',
             },
