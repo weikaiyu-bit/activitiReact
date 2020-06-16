@@ -96,15 +96,6 @@ export default {
       return;
     }
 
-    if (type === 'mobile') {
-      res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'admin',
-      });
-      return;
-    }
-
     res.send({
       status: 'error',
       type,

@@ -5,12 +5,13 @@
  */
 import ProLayout, { DefaultFooter } from '@ant-design/pro-layout';
 import React, { useEffect } from 'react';
-import { Link, useIntl, connect } from 'umi';
-import { GithubOutlined } from '@ant-design/icons';
-import { Result, Button } from 'antd';
+import { Link } from 'umi';
+import { connect } from 'dva';
+import { Icon, Result, Button } from 'antd';
+import { formatMessage } from 'umi-plugin-react/locale';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
-import { getAuthorityFromRouter } from '@/utils/utils';
+import { isAntDesignPro, getAuthorityFromRouter } from '@/utils/utils';
 import logo from '../assets/logo.svg';
 
 const noMatch = (
@@ -47,7 +48,7 @@ const defaultFooterDom = (
       },
       {
         key: 'github',
-        title: <GithubOutlined />,
+        title: <Icon type="github" />,
         href: 'https://github.com/ant-design/ant-design-pro',
         blankTarget: true,
       },
@@ -60,6 +61,32 @@ const defaultFooterDom = (
     ]}
   />
 );
+
+const footerRender = () => {
+  if (!isAntDesignPro()) {
+    return defaultFooterDom;
+  }
+
+  return (
+    <>
+      {defaultFooterDom}
+      <div
+        style={{
+          padding: '0px 24px 24px',
+          textAlign: 'center',
+        }}
+      >
+        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
+            width="82px"
+            alt="netlify logo"
+          />
+        </a>
+      </div>
+    </>
+  );
+};
 
 const BasicLayout = props => {
   const {
@@ -97,11 +124,9 @@ const BasicLayout = props => {
   const authorized = getAuthorityFromRouter(props.route.routes, location.pathname || '/') || {
     authority: undefined,
   };
-  const { formatMessage } = useIntl();
   return (
     <ProLayout
       logo={logo}
-      formatMessage={formatMessage}
       menuHeaderRender={(logoDom, titleDom) => (
         <Link to="/">
           {logoDom}
@@ -121,6 +146,7 @@ const BasicLayout = props => {
           path: '/',
           breadcrumbName: formatMessage({
             id: 'menu.home',
+            defaultMessage: 'Home',
           }),
         },
         ...routers,
@@ -133,8 +159,9 @@ const BasicLayout = props => {
           <span>{route.breadcrumbName}</span>
         );
       }}
-      footerRender={() => defaultFooterDom}
+      footerRender={footerRender}
       menuDataRender={menuDataRender}
+      formatMessage={formatMessage}
       rightContentRender={() => <RightContent />}
       {...props}
       {...settings}

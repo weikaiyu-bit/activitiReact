@@ -1,6 +1,6 @@
 import { Button, message, notification } from 'antd';
 import React from 'react';
-import { useIntl } from 'umi';
+import { formatMessage } from 'umi-plugin-react/locale';
 import defaultSettings from '../config/defaultSettings';
 
 const { pwa } = defaultSettings; // if pwa is true
@@ -9,7 +9,7 @@ if (pwa) {
   // Notify user if offline now
   window.addEventListener('sw.offline', () => {
     message.warning(
-      useIntl().formatMessage({
+      formatMessage({
         id: 'app.pwa.offline',
       }),
     );
@@ -59,16 +59,16 @@ if (pwa) {
           reloadSW();
         }}
       >
-        {useIntl().formatMessage({
+        {formatMessage({
           id: 'app.pwa.serviceworker.updated.ok',
         })}
       </Button>
     );
     notification.open({
-      message: useIntl().formatMessage({
+      message: formatMessage({
         id: 'app.pwa.serviceworker.updated',
       }),
-      description: useIntl().formatMessage({
+      description: formatMessage({
         id: 'app.pwa.serviceworker.updated.hint',
       }),
       btn,

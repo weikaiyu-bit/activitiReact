@@ -1,6 +1,6 @@
 import { stringify } from 'querystring';
-import { history } from 'umi';
-import { fakeAccountLogin } from '@/services/login';
+import { router } from 'umi';
+import { fakeAccountLogin, getFakeCaptcha } from '@/services/login';
 import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 
@@ -37,15 +37,19 @@ const Model = {
           }
         }
 
-        history.replace(redirect || '/');
+        router.replace(redirect || '/');
       }
+    },
+
+    *getCaptcha({ payload }, { call }) {
+      yield call(getFakeCaptcha, payload);
     },
 
     logout() {
       const { redirect } = getPageQuery(); // Note: There may be security issues, please note
 
       if (window.location.pathname !== '/user/login' && !redirect) {
-        history.replace({
+        router.replace({
           pathname: '/user/login',
           search: stringify({
             redirect: window.location.href,

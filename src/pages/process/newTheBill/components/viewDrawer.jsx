@@ -1,76 +1,70 @@
-import React from 'react';
-import { Modal, Button, Form, Input,Checkbox } from 'antd';
+import React, { Component } from 'react';
+import { Modal, Form, Input } from 'antd';
+import { connect } from 'dva';
 
-
-
-
-
-export default props => {
-  const handleOk = () => {
-
-  }
-
-  const handleCancel = () => {
-    const { onCancel } = props
-    oncancel();
-  }
-
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
-  const tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
+@connect(({ pfileFamilyRelationsModel, loading }) => ({
+  pfileFamilyRelationsModel,
+  loading,
+}))
+class ViewDrawer extends Component {
+  handleCancel = () => {
+    const { onCancel } = this.props;
+    onCancel();
   };
 
+  handleOk = () => {
+    const { onCancel, dispatch } = this.props;
+    this.props.form.validateFields((err, values) => {
+      console.log('values', values);
+      if (!err) {
+        dispatch({
+          type: 'pfileFamilyRelationsModel/add',
+        });
+      }
+    });
+    onCancel();
+  };
 
-  const onFinish = values => {
+  onFinish = values => {
     console.log('Success:', values);
   };
 
-  const onFinishFailed = errorInfo => {
+  onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
-  return (
-    <Modal
-      title="Basic Modal"
-      visible={props.visible}
-      onOk={handleOk}
-      onCancel={handleCancel}
-    >
-      <Form
-        {...layout}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+
+  render() {
+    const {
+      form: { getFieldDecorator },
+    } = this.props;
+    return (
+      <Modal
+        title="Basic Modal"
+        visible={this.props.visible}
+        onOk={this.handleOk}
+        onCancel={this.handleCancel}
       >
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
+        <Form
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={this.onFinish}
+          onFinishFailed={this.onFinishFailed}
         >
-          <Input />
-        </Form.Item>
+          <Form.Item label="请假名称" name="username">
+            {getFieldDecorator('username', {})(<Input/>)}
+          </Form.Item>
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-        >
-          <Input.Password />
-        </Form.Item>
+          <Form.Item label="请假天数" name="number">
+            {getFieldDecorator('number', {})(<Input type="number" />)}
+          </Form.Item>
 
-        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+          <Form.Item label="请假原因" name="describe">
+            {getFieldDecorator('describe', {})(<Input/>)}
+          </Form.Item>
+        </Form>
+      </Modal>
+    );
+  }
+}
 
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-        </Button>
-        </Form.Item>
-      </Form>
-    </Modal>
-  )
-};
+export default Form.create({ name: 'ViewDrawer' })(ViewDrawer);

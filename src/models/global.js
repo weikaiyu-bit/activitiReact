@@ -95,8 +95,8 @@ const GlobalModel = {
       { payload },
     ) {
       return {
-        ...state,
         collapsed: false,
+        ...state,
         notices: state.notices.filter(item => item.type !== payload),
       };
     },

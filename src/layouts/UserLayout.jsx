@@ -1,7 +1,9 @@
 import { DefaultFooter, getMenuData, getPageTitle } from '@ant-design/pro-layout';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Link, useIntl, connect } from 'umi';
+import { Helmet } from 'react-helmet';
+import { Link } from 'umi';
 import React from 'react';
+import { connect } from 'dva';
+import { formatMessage } from 'umi-plugin-react/locale';
 import SelectLang from '@/components/SelectLang';
 import logo from '../assets/logo.svg';
 import styles from './UserLayout.less';
@@ -19,16 +21,15 @@ const UserLayout = props => {
       pathname: '',
     },
   } = props;
-  const { formatMessage } = useIntl();
   const { breadcrumb } = getMenuData(routes);
   const title = getPageTitle({
     pathname: location.pathname,
-    formatMessage,
     breadcrumb,
+    formatMessage,
     ...props,
   });
   return (
-    <HelmetProvider>
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={title} />
@@ -52,7 +53,7 @@ const UserLayout = props => {
         </div>
         <DefaultFooter />
       </div>
-    </HelmetProvider>
+    </>
   );
 };
 
