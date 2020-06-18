@@ -1,0 +1,100 @@
+@import '~antd/es/style/themes/default.less';
+@charset "utf-8";
+
+.AntInput {
+  :global {
+    .ant-input {
+      // border: 0;
+      border: 0px solid transparent;
+      outline: none;
+      background-color: rgba(0, 0, 0, 0);
+      box-sizing: border-box;
+      margin: 0;
+      font-variant: tabular-nums;
+      list-style: none;
+      font-feature-settings: 'tnum';
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 31px !important;
+      padding: 0px 0px !important;
+      font-size: 14px;
+      line-height: 1.5;
+      background-color: #fff;
+      background-image: none;
+      border-radius: 0px;
+      transition: all 0.3s;
+    }
+
+    // 工作单位以及职务高度
+    #work {
+      height: 120px !important;
+    }
+
+    // 简历高度
+    #resume {
+      height: 294px !important;
+    }
+
+    .ant-form-item {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 14px;
+      font-variant: tabular-nums;
+      line-height: 1.5;
+      list-style: none;
+      font-feature-settings: 'tnum';
+      margin-bottom: 0px !important;
+      vertical-align: top;
+    }
+
+    // 去掉表单验证为空时，致Table大小受到变化的问题
+    .ant-form-explain {
+      margin-bottom: 0px !important;
+    }
+
+    .ant-form-explain,
+    .ant-form-extra {
+      clear: both;
+      min-height: 0px !important;
+      margin-top: 0px !important;
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      line-height: 1.5;
+      transition: color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    // 去除 Select选择器的边框
+    .ant-select-selection {
+      display: block;
+      box-sizing: border-box;
+      background-color: #fff;
+      border: 0px solid #d9d9d9 !important;
+      border-top-width: 0px !important;
+      border-radius: 4px;
+      outline: none;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+}
+
+
+
+.formControl {
+  :global {
+
+    // 改变右侧 现职人员 行高
+    .ant-form-item-control {
+      position: relative;
+      line-height: 31px !important;
+      zoom: 1;
+    }
+
+  }
+}

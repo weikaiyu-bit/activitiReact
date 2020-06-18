@@ -1,0 +1,32 @@
+.disabled {
+  color           : #ACA899;
+  background-color: #F5F5F5;
+  border          : 1px solid #DDD;
+  cursor          : not-allowed;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.rowColor {
+  background-color: aqua;
+}
+
+.grayDisplay {
+  color           : #ACA899;
+  background-color: #F5F5F5;
+  border          : 1px solid #DDD;
+}
+
+.grayDisplay a {
+  color: #ACA899;
+}
+
+.ellipsis {
+  overflow          : hidden;
+  text-overflow     : ellipsis;
+  display           : -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

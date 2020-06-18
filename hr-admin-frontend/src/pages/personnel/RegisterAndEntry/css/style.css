@@ -1,0 +1,93 @@
+.personnelSearchBar .ant-form-item {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  vertical-align: top;
+}
+.add-personnel-modal .ant-modal-body .ant-row .ant-col .addModalForm .ant-form-item {
+  box-sizing           : border-box;
+  margin               : 0;
+  padding              : 0;
+  color                : rgba(0, 0, 0, 0.65);
+  font-size            : 14px;
+  font-variant         : tabular-nums;
+  line-height          : 1.5;
+  list-style           : none;
+  font-feature-settings: 'tnum';
+  margin-bottom        : -10px;
+  vertical-align       : top;
+}
+
+.add-personnel-modal .ant-descriptions-bordered .ant-descriptions-item-content {
+  padding     : 0px !important;
+  border-right: 1px solid #e8e8e8;
+}
+
+.add-personnel-modal .ant-descriptions-bordered .ant-descriptions-item-label,
+.ant-descriptions-bordered .ant-descriptions-item-content {
+  padding     : 0px 0px !important;
+  border-right: 1px solid #e8e8e8;
+  height      : 40px;
+}
+/* 改变姓名行宽度 */
+.add-personnel-modal .ant-descriptions-item-label {
+  padding    : 12px 12px !important;
+  color      : rgba(0, 0, 0, 0.85);
+  font-weight: normal;
+  font-size  : 14px;
+  line-height: 1.5;
+}
+
+.add-personnel-modal .ant-descriptions-item-content .ant-input {
+  box-sizing           : border-box;
+  margin               : 0;
+  padding              : 0;
+  font-variant         : tabular-nums;
+  list-style           : none;
+  font-feature-settings: 'tnum';
+  position             : relative;
+  display              : inline-block;
+  width                : 100%;
+  height               : 30px;
+  padding              : 4px 11px;
+  color                : rgba(0, 0, 0, 0.65);
+  font-size            : 14px;
+  line-height          : 1.5;
+  background-color     : #fff;
+  background-image     : none;
+  /* border            : 1px solid #d9d9d9;
+  border-radius        : 4px; */
+  border               : none !important;
+  transition           : all 0.3s;
+}
+
+.add-personnel-modal .ant-descriptions-item-label {
+  color      : rgba(7, 7, 7, 0.85);
+  font-weight: normal;
+  font-size  : 14px;
+  line-height: 1.5;
+  height     : 80px;
+  text-align : center !important;
+}
+
+/* 上传图片样式 */
+.add-personnel-modal .ant-upload.ant-upload-select-picture-card {
+  display: table;
+  float  : left;
+  height: 122px !important;
+  margin-right    : 8px;
+  margin-bottom   : 8px;
+  text-align      : center;
+  vertical-align  : top;
+  background-color: #fafafa;
+  border          : 1px dashed #d9d9d9;
+  border-radius   : 4px;
+  cursor          : pointer;
+  transition      : border-color 0.3s ease;
+}

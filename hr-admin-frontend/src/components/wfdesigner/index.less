@@ -1,0 +1,73 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+
+  :global {
+    .command i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      background: white;
+      &:hover {
+        border: 1px solid #e6e9ed;
+      }
+    }
+    .command {
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    .ant-divider + .command {
+      margin-left: 0;
+    }
+
+    // .ant-divider + .command{
+    //   margin-right:8px;
+    // }
+
+    .disable i {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: auto;
+
+      &:hover {
+        border: 1px solid #fff;
+      }
+    }
+  }
+}
+
+.tooltip {
+  :global {
+    .ant-tooltip-inner {
+      font-size: 12px;
+      border-radius: 0;
+    }
+  }
+}
+
+.controlbar {
+  width: 96px;
+}
+
+.control {
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.viewer {
+  width: 100%;
+  min-height: 480px;
+  background: white;
+}

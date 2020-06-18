@@ -1,0 +1,80 @@
+@import '~antd/es/style/themes/default.less';
+@charset "utf-8";
+
+.compact {
+  :global {
+    .ant-descriptions-bordered .ant-descriptions-item-label {
+      padding     : 16px 24px !important;
+      border-right: 1px solid #e8e8e8 !important;
+    }
+
+    // 重写填写家庭成员信息
+    .ant-input {
+      box-sizing           : border-box;
+      margin               : 0;
+      padding              : 0 !important;
+      font-variant         : tabular-nums;
+      list-style           : none;
+      font-feature-settings: 'tnum';
+      position             : relative;
+      display              : inline-block;
+      width                : 100%;
+      height               : 50px !important; //主要调节高度
+      padding              : 4px 11px;
+      color                : rgba(0, 0, 0, 0.65);
+      font-size            : 14px;
+      line-height          : 1.5;
+      background-color     : #fff;
+      background-image     : none;
+      border               : none !important;
+      transition           : all 0.3s;
+    }
+
+    .ant-descriptions-item-content .ant-input {
+      box-sizing           : border-box;
+      margin               : 0;
+      padding              : 0 !important;
+      font-variant         : tabular-nums;
+      list-style           : none;
+      font-feature-settings: 'tnum';
+      position             : relative;
+      display              : inline-block;
+      width                : 100%;
+      height               : 100px;
+      padding              : 4px 11px;
+      color                : rgba(0, 0, 0, 0.65);
+      font-size            : 14px;
+      line-height          : 1.5;
+      background-color     : #fff;
+      background-image     : none;
+      border               : none !important;
+      transition           : all 0.3s;
+    }
+
+    // 
+    .ant-form-item {
+      box-sizing           : border-box;
+      margin               : 0;
+      /* padding           : 0; */
+      color                : rgba(0, 0, 0, 0.65);
+      font-size            : 14px;
+      font-variant         : tabular-nums;
+      line-height          : 1.5;
+      list-style           : none;
+      font-feature-settings: 'tnum';
+      /* margin-bottom     : 24px; */
+      vertical-align       : top;
+    }
+
+    .ant-table-bordered .ant-table-thead>tr>th {
+      padding     : 16px 16px !important;
+      border-right: 1px solid #e8e8e8;
+    }
+
+    .ant-table-thead>tr>th,
+    .ant-table-tbody>tr>td {
+      padding      : 0px 0px !important;
+      overflow-wrap: break-word;
+    }
+  }
+}

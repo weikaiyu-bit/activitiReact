@@ -1,0 +1,5 @@
+.add-personnel-modal .ant-descriptions-bordered .ant-descriptions-item-label, .add-personnel-modal .ant-descriptions-bordered .ant-descriptions-item-content {
+    padding: 0px 15px !important;
+    border-right: 1px solid #e8e8e8;
+    height: 40px;
+}

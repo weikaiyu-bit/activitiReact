@@ -1,0 +1,16 @@
+@import '~antd/es/style/themes/default.less';
+@charset "utf-8";
+
+.timeline {
+    :global {
+
+        .ant-divider-horizontal.ant-divider-with-text-left::before,
+        .ant-divider-horizontal.ant-divider-with-text-left::after {
+            position  : relative;
+            display   : table-cell;
+            transform : translateY(50%);
+            content   : '';
+            border-top: 1px solid #f8f6df !important;
+        }
+    }
+}
